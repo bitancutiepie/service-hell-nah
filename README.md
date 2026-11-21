@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="docs/assets/icon.svg" width="100" height="100" alt="BITANCUTIEPIE SERVICEHELLNAH logo" />
-  <h1>BITANCUTIEPIE SERVICEHELLNAH</h1>
-  <p><b>Lightweight Auto-Pilot &amp; Fast-Finisher for ServiceNow Now Learning and SkillWallet</b></p>
+  <img src="docs/assets/icon.svg" width="100" height="100" alt="SERVICE HELL NAH logo" />
+  <h1>SERVICE HELL NAH</h1>
+  <p><b>Automated Course Pilot &amp; Fast-Finisher for ServiceNow Now Learning and SkillWallet</b></p>
 </div>
 
 ---
@@ -15,6 +15,9 @@ The extension automates progress tracking, lesson completion, video fast-finishi
 ## Screenshots
 
 <div align="center">
+  <h3>Interactive Extension Control Panel</h3>
+  <img src="docs/assets/popup_ui.png" alt="SERVICE HELL NAH Control Panel" width="360" />
+  <br/><br/>
   <h3>SkillWallet Automation (Mark Complete &amp; Next Flow)</h3>
   <img src="docs/assets/skillwallet_preview.jpg" alt="SkillWallet Course Automation" width="800" />
   <br/><br/>
@@ -61,7 +64,7 @@ The extension automates progress tracking, lesson completion, video fast-finishi
 
 1. Clone or download this repository to a local folder:
    ```bash
-   git clone https://github.com/your-username/video-skip-extension.git
+   git clone https://github.com/bitancutiepie/service-hell-nah.git
    ```
 2. Open Google Chrome (or any Chromium-based browser) and navigate to `chrome://extensions/`.
 3. Enable **Developer mode** using the toggle in the upper-right corner.
