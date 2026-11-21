@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "BITANCUTIEPIE SERVICEHELLNAH",
+  "version": "4.8",
+  "description": "Auto-completes ServiceNow and SkillWallet training videos and auto-navigates lessons.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "BITANCUTIEPIE SERVICEHELLNAH"
+  },
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

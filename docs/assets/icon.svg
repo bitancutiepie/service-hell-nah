@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" shape-rendering="crispEdges">
+  <rect width="120" height="120" rx="16" fill="#efe7ff"/>
+  <rect x="8" y="8" width="104" height="104" rx="8" fill="#d9c8ff" stroke="#5b3fa8" stroke-width="4"/>
+  <!-- Sparkles -->
+  <rect x="24" y="24" width="6" height="6" fill="#ff6fb5"/>
+  <rect x="90" y="28" width="6" height="6" fill="#5a9cff"/>
+  <rect x="84" y="86" width="6" height="6" fill="#ff9a62"/>
+  <rect x="28" y="84" width="6" height="6" fill="#3fc896"/>
+  <!-- Center Play / Pilot Icon Box -->
+  <rect x="36" y="36" width="48" height="48" fill="#ffffff" stroke="#5b3fa8" stroke-width="3"/>
+  <!-- Pixel Play Arrow -->
+  <rect x="52" y="46" width="4" height="28" fill="#5b3fa8"/>
+  <rect x="56" y="50" width="4" height="20" fill="#3fc896"/>
+  <rect x="60" y="54" width="4" height="12" fill="#3fc896"/>
+  <rect x="64" y="56" width="4" height="8" fill="#5b3fa8"/>
+  <rect x="68" y="58" width="4" height="4" fill="#5b3fa8"/>
+  <!-- Highlight -->
+  <rect x="56" y="50" width="2" height="20" fill="#ffffff"/>
+</svg>

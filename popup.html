@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BITANCUTIEPIE SERVICEHELLNAH</title>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#efe7ff; --bg-dot:#e2d6fb; --cloud:rgba(255,255,255,.85);
+  --line:#5b3fa8; --text:#3d2678;
+  --panel:#d9c8ff; --panel-hi:#f4ecff; --panel-lo:#b8a0f2;
+  --mint:#c4f5e2; --mint-d:#3fc896;
+  --peach:#ffdcc8; --peach-d:#ff9a62;
+  --sky:#cde3ff; --sky-d:#5a9cff;
+  --pink:#ffcfe8; --pink-d:#ff6fb5;
+  --red:#ffd0d0; --red-d:#ff5252;
+  --pf:"Pixelify Sans","Courier New",monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1c52;--bg-dot:#33235f;--cloud:rgba(255,255,255,.09)}}
+:root[data-theme="dark"]{--bg:#2a1c52;--bg-dot:#33235f;--cloud:rgba(255,255,255,.09)}
+*,*::before,*::after{box-sizing:inherit}
+html,body{width:360px;margin:0}
+body{
+  background-color:var(--bg);
+  background-image:radial-gradient(var(--bg-dot) 3px,transparent 3px);
+  background-size:24px 24px;
+  display:grid;place-items:center;padding:20px 16px;overflow:hidden;
+  font-family:var(--pf);color:var(--text);
+}
+.deco{position:fixed;pointer-events:none}
+.deco svg{display:block;shape-rendering:crispEdges}
+.cloud{color:var(--cloud)}
+.spark{animation:twinkle 2.4s steps(1) infinite}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.25}}
+
+.panel{
+  position:relative;width:100%;padding:22px 18px 18px;
+  background:var(--panel);
+  box-shadow:
+    0 -4px 0 0 var(--line),0 4px 0 0 var(--line),-4px 0 0 0 var(--line),4px 0 0 0 var(--line),
+    inset 4px 4px 0 0 var(--panel-hi),inset -4px -4px 0 0 var(--panel-lo),
+    8px 10px 0 0 rgba(91,63,168,.28);
+}
+.tag{
+  display:flex;align-items:center;gap:8px;width:max-content;margin:0 auto 10px;
+  padding:4px 10px;background:#fff;color:var(--text);font-weight:700;font-size:14px;
+  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line);
+}
+.tag svg{width:14px;height:14px;color:var(--pink-d)}
+h1{
+  margin:0 0 14px;text-align:center;font-weight:700;font-size:19px;line-height:1.2;
+  color:#fff;letter-spacing:1px;
+  text-shadow:0 3px 0 var(--line),3px 0 0 var(--line),-3px 0 0 var(--line),0 -3px 0 var(--line),3px 3px 0 var(--line),-3px 3px 0 var(--line),3px -3px 0 var(--line),-3px -3px 0 var(--line);
+}
+
+/* Master ON / OFF Pill Switch */
+.switch-card{
+  background:#fff;padding:8px 12px;margin-bottom:14px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line);
+}
+.switch-title{
+  font:700 16px var(--pf);color:var(--text);letter-spacing:.5px;
+}
+.toggle-btn{
+  appearance:none;border:0;cursor:pointer;padding:6px 14px;
+  font:700 15px var(--pf);color:var(--text);
+  box-shadow:0 -2px 0 0 var(--line),0 2px 0 0 var(--line),-2px 0 0 0 var(--line),2px 0 0 0 var(--line);
+  transition:transform .08s steps(2);
+}
+.toggle-btn.off{
+  background:var(--red);color:#991b1b;
+}
+.toggle-btn.on{
+  background:var(--mint);color:#065f46;
+}
+.toggle-btn:active{transform:scale(0.95)}
+
+.stack{display:grid;gap:10px}
+.btn{
+  --c:var(--mint);--acc:var(--mint-d);
+  appearance:none;border:0;cursor:pointer;width:100%;
+  display:grid;grid-template-columns:42px 1fr;gap:10px;align-items:center;
+  padding:6px 8px 8px 6px;text-align:left;
+  font:700 15px/1.15 var(--pf);color:var(--text);
+  background:var(--c);
+  box-shadow:
+    0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line),
+    inset 0 3px 0 0 rgba(255,255,255,.75),inset 0 -5px 0 0 rgba(91,63,168,.16);
+  transition:transform .08s steps(2);
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:active,.btn.pressed{
+  transform:translateY(3px);
+  box-shadow:
+    0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line),
+    inset 0 4px 0 0 rgba(91,63,168,.2);
+}
+.mint{--c:var(--mint);--acc:var(--mint-d)} .peach{--c:var(--peach);--acc:var(--peach-d)}
+.sky{--c:var(--sky);--acc:var(--sky-d)}    .pink{--c:var(--pink);--acc:var(--pink-d)}
+.tile{
+  width:42px;height:42px;display:grid;place-items:center;background:#fff;
+  box-shadow:0 -2px 0 0 var(--line),0 2px 0 0 var(--line),-2px 0 0 0 var(--line),2px 0 0 0 var(--line);
+}
+.tile svg{width:28px;height:28px;shape-rendering:crispEdges}
+.o{fill:var(--line)} .w{fill:#fff} .f{fill:var(--acc)}
+
+.status{
+  display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;
+  padding:6px 10px;background:#fff;font-weight:500;font-size:14px;
+  box-shadow:0 -2px 0 0 var(--line),0 2px 0 0 var(--line),-2px 0 0 0 var(--line),2px 0 0 0 var(--line);
+}
+.status svg{flex:none;width:12px;height:12px;color:var(--pink-d)}
+@media (prefers-reduced-motion:reduce){.spark{animation:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="deco cloud" style="top:3%;left:2%"><svg id="c1" width="100" height="42" viewBox="0 0 14 6" fill="currentColor"></svg></div>
+<div class="deco cloud" style="bottom:4%;right:2%"><svg id="c2" width="85" height="36" viewBox="0 0 14 6" fill="currentColor"></svg></div>
+<div id="sparks"></div>
+
+<main class="panel">
+  <span class="tag"><i data-spark></i>SkillWallet &amp; ServiceNow<i data-spark></i></span>
+  <h1>BITANCUTIEPIE<br>SERVICEHELLNAH</h1>
+
+  <!-- Master ON / OFF Toggle Switch -->
+  <div class="switch-card">
+    <span class="switch-title">EXTENSION STATUS:</span>
+    <button class="toggle-btn off" id="master-toggle">● OFF</button>
+  </div>
+
+  <div class="stack">
+    <!-- Manual trigger: Mark Complete & Next -->
+    <button class="btn mint" id="btn-sw-complete" data-action="SKILLWALLET_MARK_NEXT" data-msg="Triggered: Mark Complete &amp; Next" data-icon="check">
+      <span class="tile"></span><span>Mark Complete &amp; Next</span>
+    </button>
+
+    <!-- Manual trigger: Start Learning -->
+    <button class="btn sky" id="btn-sw-start" data-action="SKILLWALLET_START" data-msg="Triggered: Start Learning" data-icon="play">
+      <span class="tile"></span><span>Click Start Learning</span>
+    </button>
+
+    <!-- Video Speedup & Finish -->
+    <button class="btn peach" id="btn-force-finish" data-action="FORCE_FINISH" data-msg="Video finished &amp; checked" data-icon="fast">
+      <span class="tile"></span><span>Fast Video Finish</span>
+    </button>
+
+    <!-- Expand All Modules -->
+    <button class="btn pink" id="btn-expand-all" data-action="EXPAND_ALL" data-msg="All modules expanded" data-icon="chest">
+      <span class="tile"></span><span>Expand All Modules</span>
+    </button>
+  </div>
+
+  <div class="status" role="status" aria-live="polite"><i data-spark></i><span id="msg">Extension is OFF</span><i data-spark></i></div>
+</main>
+
+<script src="popup.js"></script>
+</body>
+</html>
