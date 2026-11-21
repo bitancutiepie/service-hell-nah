@@ -1,15 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "BITANCUTIEPIE SERVICEHELLNAH",
-  "version": "4.8",
-  "description": "Auto-completes ServiceNow and SkillWallet training videos and auto-navigates lessons.",
+  "name": "SERVICE HELL NAH",
+  "version": "5.0",
+  "description": "Auto-completes ServiceNow and SkillWallet training videos, auto-navigates lessons, and inspects DOM.",
   "action": {
     "default_popup": "popup.html",
-    "default_title": "BITANCUTIEPIE SERVICEHELLNAH"
+    "default_title": "SERVICE HELL NAH"
   },
   "permissions": [
     "tabs",
-    "storage"
+    "storage",
+    "clipboardWrite"
   ],
   "host_permissions": [
     "<all_urls>"

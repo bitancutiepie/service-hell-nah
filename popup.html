@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BITANCUTIEPIE SERVICEHELLNAH</title>
+<title>SERVICE HELL NAH</title>
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -17,6 +17,7 @@
   --peach:#ffdcc8; --peach-d:#ff9a62;
   --sky:#cde3ff; --sky-d:#5a9cff;
   --pink:#ffcfe8; --pink-d:#ff6fb5;
+  --yellow:#fff0b3; --yellow-d:#f59e0b;
   --red:#ffd0d0; --red-d:#ff5252;
   --pf:"Pixelify Sans","Courier New",monospace;
 }
@@ -28,7 +29,7 @@ body{
   background-color:var(--bg);
   background-image:radial-gradient(var(--bg-dot) 3px,transparent 3px);
   background-size:24px 24px;
-  display:grid;place-items:center;padding:20px 16px;overflow:hidden;
+  display:grid;place-items:center;padding:18px 16px;overflow:hidden;
   font-family:var(--pf);color:var(--text);
 }
 .deco{position:fixed;pointer-events:none}
@@ -38,7 +39,7 @@ body{
 @keyframes twinkle{0%,100%{opacity:1}50%{opacity:.25}}
 
 .panel{
-  position:relative;width:100%;padding:22px 18px 18px;
+  position:relative;width:100%;padding:20px 16px 16px;
   background:var(--panel);
   box-shadow:
     0 -4px 0 0 var(--line),0 4px 0 0 var(--line),-4px 0 0 0 var(--line),4px 0 0 0 var(--line),
@@ -52,23 +53,23 @@ body{
 }
 .tag svg{width:14px;height:14px;color:var(--pink-d)}
 h1{
-  margin:0 0 14px;text-align:center;font-weight:700;font-size:19px;line-height:1.2;
+  margin:0 0 12px;text-align:center;font-weight:700;font-size:19px;line-height:1.2;
   color:#fff;letter-spacing:1px;
   text-shadow:0 3px 0 var(--line),3px 0 0 var(--line),-3px 0 0 var(--line),0 -3px 0 var(--line),3px 3px 0 var(--line),-3px 3px 0 var(--line),3px -3px 0 var(--line),-3px -3px 0 var(--line);
 }
 
 /* Master ON / OFF Pill Switch */
 .switch-card{
-  background:#fff;padding:8px 12px;margin-bottom:14px;
+  background:#fff;padding:6px 10px;margin-bottom:12px;
   display:flex;align-items:center;justify-content:space-between;
   box-shadow:0 -3px 0 0 var(--line),0 3px 0 0 var(--line),-3px 0 0 0 var(--line),3px 0 0 0 var(--line);
 }
 .switch-title{
-  font:700 16px var(--pf);color:var(--text);letter-spacing:.5px;
+  font:700 15px var(--pf);color:var(--text);letter-spacing:.5px;
 }
 .toggle-btn{
-  appearance:none;border:0;cursor:pointer;padding:6px 14px;
-  font:700 15px var(--pf);color:var(--text);
+  appearance:none;border:0;cursor:pointer;padding:5px 12px;
+  font:700 14px var(--pf);color:var(--text);
   box-shadow:0 -2px 0 0 var(--line),0 2px 0 0 var(--line),-2px 0 0 0 var(--line),2px 0 0 0 var(--line);
   transition:transform .08s steps(2);
 }
@@ -80,12 +81,12 @@ h1{
 }
 .toggle-btn:active{transform:scale(0.95)}
 
-.stack{display:grid;gap:10px}
+.stack{display:grid;gap:9px}
 .btn{
   --c:var(--mint);--acc:var(--mint-d);
   appearance:none;border:0;cursor:pointer;width:100%;
-  display:grid;grid-template-columns:42px 1fr;gap:10px;align-items:center;
-  padding:6px 8px 8px 6px;text-align:left;
+  display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;
+  padding:5px 8px 7px 5px;text-align:left;
   font:700 15px/1.15 var(--pf);color:var(--text);
   background:var(--c);
   box-shadow:
@@ -102,16 +103,17 @@ h1{
 }
 .mint{--c:var(--mint);--acc:var(--mint-d)} .peach{--c:var(--peach);--acc:var(--peach-d)}
 .sky{--c:var(--sky);--acc:var(--sky-d)}    .pink{--c:var(--pink);--acc:var(--pink-d)}
+.yellow{--c:var(--yellow);--acc:var(--yellow-d)}
 .tile{
-  width:42px;height:42px;display:grid;place-items:center;background:#fff;
+  width:40px;height:40px;display:grid;place-items:center;background:#fff;
   box-shadow:0 -2px 0 0 var(--line),0 2px 0 0 var(--line),-2px 0 0 0 var(--line),2px 0 0 0 var(--line);
 }
-.tile svg{width:28px;height:28px;shape-rendering:crispEdges}
+.tile svg{width:26px;height:26px;shape-rendering:crispEdges}
 .o{fill:var(--line)} .w{fill:#fff} .f{fill:var(--acc)}
 
 .status{
-  display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;
-  padding:6px 10px;background:#fff;font-weight:500;font-size:14px;
+  display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;
+  padding:5px 8px;background:#fff;font-weight:500;font-size:14px;
   box-shadow:0 -2px 0 0 var(--line),0 2px 0 0 var(--line),-2px 0 0 0 var(--line),2px 0 0 0 var(--line);
 }
 .status svg{flex:none;width:12px;height:12px;color:var(--pink-d)}
@@ -119,13 +121,13 @@ h1{
 </style>
 </head>
 <body>
-<div class="deco cloud" style="top:3%;left:2%"><svg id="c1" width="100" height="42" viewBox="0 0 14 6" fill="currentColor"></svg></div>
-<div class="deco cloud" style="bottom:4%;right:2%"><svg id="c2" width="85" height="36" viewBox="0 0 14 6" fill="currentColor"></svg></div>
+<div class="deco cloud" style="top:2%;left:2%"><svg id="c1" width="90" height="38" viewBox="0 0 14 6" fill="currentColor"></svg></div>
+<div class="deco cloud" style="bottom:3%;right:2%"><svg id="c2" width="80" height="34" viewBox="0 0 14 6" fill="currentColor"></svg></div>
 <div id="sparks"></div>
 
 <main class="panel">
   <span class="tag"><i data-spark></i>SkillWallet &amp; ServiceNow<i data-spark></i></span>
-  <h1>BITANCUTIEPIE<br>SERVICEHELLNAH</h1>
+  <h1>SERVICE HELL NAH</h1>
 
   <!-- Master ON / OFF Toggle Switch -->
   <div class="switch-card">
@@ -134,6 +136,11 @@ h1{
   </div>
 
   <div class="stack">
+    <!-- Scrape DOM & Copy to Clipboard -->
+    <button class="btn yellow" id="btn-scrape-copy" data-action="SCRAPE_AND_COPY" data-msg="Scraping &amp; copying..." data-icon="copy">
+      <span class="tile"></span><span>Scrape &amp; Copy Elements</span>
+    </button>
+
     <!-- Manual trigger: Mark Complete & Next -->
     <button class="btn mint" id="btn-sw-complete" data-action="SKILLWALLET_MARK_NEXT" data-msg="Triggered: Mark Complete &amp; Next" data-icon="check">
       <span class="tile"></span><span>Mark Complete &amp; Next</span>

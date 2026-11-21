@@ -1,5 +1,19 @@
 /* o = outline, w = highlight, f = accent fill */
 const ICONS = {
+  copy: [
+    "....oooooo..",
+    "....owwwwwo.",
+    "....owffffo.",
+    ".oooooofffo.",
+    ".owwwowfffo.",
+    ".owffoooooo.",
+    ".owffffffffo",
+    ".owffffffffo",
+    ".owffffffffo",
+    ".owffffffffo",
+    ".ooooooooooo",
+    "............"
+  ],
   play: [
     "............",
     ".oo.........",
@@ -125,8 +139,11 @@ function sendCommand(action, statusText, extra = {}) {
 
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     if (!tabs || tabs.length === 0) return;
-    chrome.tabs.sendMessage(tabs[0].id, { action: action, ...extra }, () => {
-      if (chrome.runtime.lastError) {}
+    chrome.tabs.sendMessage(tabs[0].id, { action: action, ...extra }, (res) => {
+      if (chrome.runtime.lastError) return;
+      if (res && res.copied) {
+        if (msg) msg.textContent = "COPIED TO CLIPBOARD!";
+      }
     });
   });
 }

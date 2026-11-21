@@ -1,5 +1,5 @@
 // content.js - Primary automation controller for ServiceNow & SkillWallet
-console.log('%c[BITANCUTIEPIE] Content Script LOADED on: ' + window.location.href, 'background: #5b3fa8; color: #fff; font-size: 14px; font-weight: bold; padding: 4px;');
+console.log('%c[SERVICE HELL NAH] Content Script LOADED on: ' + window.location.href, 'background: #5b3fa8; color: #fff; font-size: 14px; font-weight: bold; padding: 4px;');
 
 // Default is OFF until user toggles ON
 let autopilotEnabled = false;
@@ -12,7 +12,7 @@ try {
         autopilotEnabled = Boolean(res.autopilotEnabled);
       }
       notifyInjectScript();
-      console.log('[BITANCUTIEPIE] Auto-pilot status:', autopilotEnabled ? 'ON' : 'OFF');
+      console.log('[SERVICE HELL NAH] Auto-pilot status:', autopilotEnabled ? 'ON' : 'OFF');
     });
   }
 } catch (e) {}
@@ -28,7 +28,7 @@ try {
   s.onload = () => s.remove();
   (document.head || document.documentElement).appendChild(s);
 } catch (e) {
-  console.error('[BITANCUTIEPIE] Inject error:', e);
+  console.error('[SERVICE HELL NAH] Inject error:', e);
 }
 
 function clickButton(btn) {
@@ -45,7 +45,61 @@ function clickButton(btn) {
 }
 
 // ==========================================
-// 1. SKILLWALLET AUTOMATION ENGINE
+// 1. IN-PAGE SCRAPER & AUTO-COPY ENGINE
+// ==========================================
+function scrapePageElements() {
+  const data = {
+    timestamp: new Date().toISOString(),
+    url: window.location.href,
+    title: document.title,
+    buttons: Array.from(document.querySelectorAll('button, a, [role="button"], div[class*="btn" i], div[class*="complete" i], div[class*="next" i]')).map(el => {
+      const r = el.getBoundingClientRect();
+      return {
+        tag: el.tagName,
+        text: (el.innerText || '').trim().replace(/\s+/g, ' '),
+        className: typeof el.className === 'string' ? el.className : '',
+        role: el.getAttribute('role'),
+        disabled: el.disabled || el.getAttribute('aria-disabled'),
+        position: { bottom: Math.round(r.bottom), right: Math.round(r.right), width: Math.round(r.width), height: Math.round(r.height) }
+      };
+    }).filter(b => b.text.length > 0 && b.position.width > 0).slice(0, 50),
+    bottomAreaElements: Array.from(document.querySelectorAll('*')).filter(el => {
+      const r = el.getBoundingClientRect();
+      return r.top > window.innerHeight - 150 && r.height > 10 && r.width > 20 && el.children.length <= 2;
+    }).map(el => ({
+      tag: el.tagName,
+      text: (el.innerText || '').trim().replace(/\s+/g, ' '),
+      className: typeof el.className === 'string' ? el.className : ''
+    })).filter(x => x.text.length > 0 && x.text.length < 100).slice(0, 30)
+  };
+
+  const jsonStr = JSON.stringify(data, null, 2);
+
+  // Copy to clipboard via fallback textarea
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = jsonStr;
+    ta.style.position = 'fixed';
+    ta.style.top = '0';
+    ta.style.left = '0';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+    console.log('%c[SERVICE HELL NAH] ✅ Elements scraped and copied to clipboard!', 'background: #3fc896; color: #fff; font-size: 14px; padding: 4px;');
+  } catch (err) {
+    navigator.clipboard?.writeText?.(jsonStr);
+  }
+
+  // Print nicely in console too
+  console.log('[SERVICE HELL NAH] Scraped DOM Object:', data);
+  return jsonStr;
+}
+
+// ==========================================
+// 2. SKILLWALLET AUTOMATION ENGINE
 // ==========================================
 let isHandlingSkillWallet = false;
 
@@ -60,7 +114,7 @@ function handleSkillWallet() {
     return txt.includes('start learning') && !b.disabled;
   });
   if (startBtn) {
-    console.log('[BITANCUTIEPIE] Found "Start Learning" button! Clicking...');
+    console.log('[SERVICE HELL NAH] Found "Start Learning" button! Clicking...');
     clickButton(startBtn);
     return;
   }
@@ -72,7 +126,7 @@ function handleSkillWallet() {
   });
 
   if (markCompleteBtn) {
-    console.log('[BITANCUTIEPIE] Found "Mark as Complete" button! Clicking...');
+    console.log('[SERVICE HELL NAH] Found "Mark as Complete" button! Clicking...');
     isHandlingSkillWallet = true;
 
     clickButton(markCompleteBtn);
@@ -104,7 +158,7 @@ function advanceSkillWallet() {
   });
 
   if (nextBtn) {
-    console.log('[BITANCUTIEPIE] Clicking Next button:', (nextBtn.innerText || '').slice(0, 30));
+    console.log('[SERVICE HELL NAH] Clicking Next button:', (nextBtn.innerText || '').slice(0, 30));
     clickButton(nextBtn);
     setTimeout(() => { isHandlingSkillWallet = false; }, 2000);
     return;
@@ -126,7 +180,7 @@ function advanceSkillWallet() {
   });
 
   if (uncompleted) {
-    console.log('[BITANCUTIEPIE] Clicking uncompleted sidebar lesson:', uncompleted.innerText);
+    console.log('[SERVICE HELL NAH] Clicking uncompleted sidebar lesson:', uncompleted.innerText);
     clickButton(uncompleted);
     setTimeout(() => { isHandlingSkillWallet = false; }, 2000);
     return;
@@ -136,7 +190,7 @@ function advanceSkillWallet() {
 }
 
 // ==========================================
-// 2. SERVICENOW AUTOMATION ENGINE
+// 3. SERVICENOW AUTOMATION ENGINE
 // ==========================================
 let isNavigatingServiceNow = false;
 
@@ -201,7 +255,7 @@ function handleServiceNow() {
     const target = allClickable[0].closest('a, [role="button"], [role="treeitem"], div[tabindex]') || allClickable[0];
     const title = (target.innerText || '').split('\n')[0].trim();
 
-    console.log('[BITANCUTIEPIE] Advancing to uncompleted lesson:', title);
+    console.log('[SERVICE HELL NAH] Advancing to uncompleted lesson:', title);
     isNavigatingServiceNow = true;
 
     target.scrollIntoView({ block: 'nearest' });
@@ -225,13 +279,16 @@ function handleServiceNow() {
 }
 
 // ==========================================
-// 3. POPUP ACTION LISTENERS
+// 4. POPUP ACTION LISTENERS
 // ==========================================
 if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.onMessage) {
   chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
-    console.log('[BITANCUTIEPIE] Received action:', req.action);
+    console.log('[SERVICE HELL NAH] Received action:', req.action);
 
-    if (req.action === 'SET_POWER') {
+    if (req.action === 'SCRAPE_AND_COPY') {
+      const json = scrapePageElements();
+      sendResponse({ status: 'ok', copied: true, data: json });
+    } else if (req.action === 'SET_POWER') {
       autopilotEnabled = Boolean(req.enabled);
       notifyInjectScript();
       if (autopilotEnabled) {
